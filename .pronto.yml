@@ -1,0 +1,3 @@
+markdownlint:
+  exclude:
+    - 'jekyll/_cci2_ja/**/*'

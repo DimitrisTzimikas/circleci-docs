@@ -152,6 +152,7 @@ jobs:
           root: *workspace_root
           paths:
             - js
+            - node_modules
 
 
 
@@ -224,6 +225,9 @@ jobs:
           name: "Test Markdown Files"
           command: md-proofer lint jekyll/_cci2/ jekyll/_api/ jekyll/_cci1/
       - ruby-deps
+      - run:
+          name: Run markdownlint with pronto
+          command: bundle exec pronto run -f github_pr -c origin/master
       - run:
           name: Create results directory
           command: mkdir -p $JOB_RESULTS_PATH
